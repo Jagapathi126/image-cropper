@@ -22,7 +22,7 @@ router.post('/v2/upload', upload, (req, res) => {
       (response) => {
         if (response && (response.error || response.err)) {
           callback(response);
-          return res.status(500).json('Error in saving logo.');
+          return res.status(500).json('Error in saving images.');
         }
         return callback();
       });
@@ -44,7 +44,6 @@ router.get('/v2/library/images', (req, res) => {
     }
     let response = [];
     
-    console.log(result);
     result.resources.forEach((r) => {
       response.push(r.url);
     });
