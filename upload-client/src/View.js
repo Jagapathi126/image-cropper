@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import Constants from './Constants';
 export default class View extends Component {
   constructor(props) {
     super(props);
@@ -9,7 +9,7 @@ export default class View extends Component {
   }
 
   componentDidMount() {
-    fetch('http://localhost:3000/v1/view').then(data => data.json()).then(data => {
+    fetch(`${Constants.endpoint}${Constants.viewURL}`).then(data => data.json()).then(data => {
       this.setState({ list: data });
     }).catch(console.log);
   }
@@ -19,8 +19,9 @@ export default class View extends Component {
       this.state.list.map((l, i) => {
         return (
           <div key={i} >
-            <a href = {`http://localhost:3000/images/${l}`}>
-            <img style={{ width: '25%', height: '250px', display: 'block', float: 'left', padding: '10px' }} src={`http://localhost:3000/images/${l}`} />
+            <a target="_blank" href={`${Constants.endpoint}${l}`}>
+              <img style={{ width: '25%', height: '250px', display: 'block', float: 'left', padding: '10px' }}
+                src={`${Constants.endpoint}${l}`} />
             </a>
           </div>
         );

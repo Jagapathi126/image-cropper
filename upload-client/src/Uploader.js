@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import { withRouter } from 'react-router-dom';
-import './App.css';
+import './css/App.css';
 import CropperModal from './CropperModel';
+import Constants from './Constants';
 
 class Uploader extends Component {
   constructor(props) {
@@ -64,7 +65,7 @@ class Uploader extends Component {
     let filexmlhttp = new XMLHttpRequest();
 
     if (filexmlhttp) {
-      let serverEndPoint = 'http://localhost:3000/v1/upload'
+      let serverEndPoint =  `${Constants.endpoint}${Constants.uploadURL}`; 
       filexmlhttp.open('POST', serverEndPoint, true);
       filexmlhttp.setRequestHeader("enctype", "multipart/form-data");
 

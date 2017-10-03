@@ -5,7 +5,7 @@ import path from 'path';
 import v1 from './apis/v1/image-store';
 import v2 from './apis/v2/image-store';
 
-const app = express(), port = process.env.PORT || 3000;
+const app = express(), port = process.env.PORT || 8081;
 
 app.use(cors());
 app.use(bodyParser.json());

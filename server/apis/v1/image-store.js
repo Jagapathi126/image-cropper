@@ -17,6 +17,7 @@ const upload = multer({
   storage
 }).array('image', 4);
 
+// Store images in server folders
 router.post('/v1/upload', (req, res) => {
   upload(req, res, (err) => {
     if (err) {
@@ -27,9 +28,12 @@ router.post('/v1/upload', (req, res) => {
   });
 });
 
-router.get('/v1/view', (req, res) => {
-  const files = fs.readdirSync(path.join(__dirname, '../../library/images'));
+// 
+router.get('/v1/library/images', (req, res) => {
+  let files = [];
 
+  fs.readdirSync(path.join(__dirname, '../../library/images')).forEach((file) => files.push(`images/${file}`));
+  console.log(files);
   return res.json(files);
 });
 

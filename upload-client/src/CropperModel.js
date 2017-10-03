@@ -1,7 +1,7 @@
 import React from 'react';
 import Cropper from 'react-cropper';
 
-import './cropperjs/cropper.min.css';
+import './css/cropper.min.css';
 
 
 export default class CropperModal extends React.PureComponent {
