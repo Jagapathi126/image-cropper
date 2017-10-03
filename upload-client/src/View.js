@@ -19,9 +19,9 @@ export default class View extends Component {
       this.state.list.map((l, i) => {
         return (
           <div key={i} >
-            <a target="_blank" href={`${Constants.endpoint}${l}`}>
+            <a target="_blank" href={l}>
               <img style={{ width: '25%', height: '250px', display: 'block', float: 'left', padding: '10px' }}
-                src={`${Constants.endpoint}${l}`} />
+                src={l} />
             </a>
           </div>
         );

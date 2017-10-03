@@ -28,12 +28,11 @@ router.post('/v1/upload', (req, res) => {
   });
 });
 
-// 
+// Returns list of images in library
 router.get('/v1/library/images', (req, res) => {
   let files = [];
 
-  fs.readdirSync(path.join(__dirname, '../../library/images')).forEach((file) => files.push(`images/${file}`));
-  console.log(files);
+  fs.readdirSync(path.join(__dirname, '../../library/images')).forEach((file) => files.push(`http://localhost:8081/images/${file}`));
   return res.json(files);
 });
 

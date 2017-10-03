@@ -34,4 +34,23 @@ router.post('/v2/upload', upload, (req, res) => {
   });
 });
 
+// Returns list of images in library
+router.get('/v2/library/images', (req, res) => {
+
+  Cloudinary.v2.api.resources({ 'type': 'upload' }, (error, result) => {
+    if (error) {
+      console.log(error);
+      res.json('Something went wrong');
+    }
+    let response = [];
+    
+    console.log(result);
+    result.resources.forEach((r) => {
+      response.push(r.url);
+    });
+    return res.json(response);
+  });
+
+});
+
 export default router;
