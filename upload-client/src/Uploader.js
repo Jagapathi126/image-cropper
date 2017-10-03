@@ -156,7 +156,7 @@ class Uploader extends Component {
           <div>
             <h1> Preview 365 * 212 </h1>
             <button className="btn btn-info"
-              onClick={() => { this.handleTabClick(4) }}> Mext </button>
+              onClick={() => { this.handleTabClick(4) }}> Next </button>
             <CropperModal imageSrc={this.state.imageSrc}
               cropWidth={365}
               cropHeight={212}
